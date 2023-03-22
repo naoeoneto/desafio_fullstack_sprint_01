@@ -14,19 +14,22 @@ class Contact {
   id: string;
 
   @Column()
-  full_name: string;
+  fullName: string;
 
   @Column()
   email: string;
 
   @Column({ nullable: true })
-  second_email: string;
+  secondEmail: string;
 
   @Column()
-  phone_number: string;
+  phoneNumber: string;
 
   @Column({ nullable: true })
-  second_phone_number: string;
+  secondPhoneNumber: string;
+
+  @Column({ default: true })
+  isActive: boolean;
 
   @CreateDateColumn()
   createdAt: Date;
