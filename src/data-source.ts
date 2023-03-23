@@ -1,9 +1,9 @@
 import 'dotenv/config';
 import path from 'path';
 import 'reflect-metadata';
-import { DataSource } from 'typeorm';
+import { DataSource, DataSourceOptions } from 'typeorm';
 
-const dataSourceConfig = () => {
+const dataSourceConfig = (): DataSourceOptions => {
     const entitiesPath = path.join(__dirname, './entities/*.{js,ts}');
     const migrationsPath = path.join(
         __dirname,
