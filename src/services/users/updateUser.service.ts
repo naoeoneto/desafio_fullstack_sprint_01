@@ -9,8 +9,8 @@ const updateUserService = async (
   id: string
 ): Promise<IUser> => {
   const userRepository = AppDataSource.getRepository(User);
-  const user = userRepository.findOneBy({ id: id });
-
+  const user = await userRepository.findOneBy({ id: id });
+  
   const updatedUser = userRepository.create({
     ...user,
     ...data,

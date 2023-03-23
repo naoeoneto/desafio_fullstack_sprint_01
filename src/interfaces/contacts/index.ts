@@ -18,7 +18,6 @@ export interface IContact {
   isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
-  user: IUserContact;
 }
 
 export interface IContactUpdate {
