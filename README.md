@@ -2,7 +2,7 @@
 
 **Para rodar esse projeto em seu computador, é necessário seguir os seguintes passos:**
 
-1. Gerar banco de dados no postgres chamado "desafio_fullstack";
+1. Criar banco de dados e colocar informações no arquivo **.env** seguindo o mesmo padrão disposto em **.env.example**;
 2. Rodar as migrations no banco de dados com o seguinte comando:
    ```
    yarn typeorm migration:run -d src/data-source
