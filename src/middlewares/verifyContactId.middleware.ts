@@ -9,13 +9,18 @@ const verifyContactIdMiddleware = async (
   next: NextFunction
 ) => {
   const contactRepository = AppDataSource.getRepository(Contact);
-  const contact = await contactRepository.findOneBy({ id: req.params.id });
-
+  const contact = await contactRepository.findOne({
+    where: { id: req.params.id },
+    relations: {
+      user: true,
+    },
+  });
+  console.log("1", contact);
   if (!contact) {
     throw new AppError("Contact not found", 404);
   }
 
-  if (contact.user.id != req.user.id){
+  if (contact.user?.id != req.user.id) {
     throw new AppError("You are not allowed do to this", 401);
   }
 

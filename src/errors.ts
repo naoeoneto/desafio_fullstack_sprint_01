@@ -9,7 +9,7 @@ export class AppError extends Error {
   }
 }
 
-export const errorIdentify = async (
+export const handleError = async (
   error: Error,
   req: Request,
   resp: Response,

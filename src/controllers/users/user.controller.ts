@@ -20,12 +20,12 @@ const listUsersController = async (req: Request, res: Response) => {
 
 const updateUserController = async (req: Request, res: Response) => {
   const data: IUserUpdate = req.body;
-  const user = await updateUserService(data, req.params.id);
+  const user = await updateUserService(data, req.user.id);
   return res.status(200).json(user);
 };
 
 const deleteUserController = async (req: Request, res: Response) => {
-  const user = await deleteUserService(req.params.id);
+  const user = await deleteUserService(req.user.id);
   return res.status(204).json(user);
 };
 
@@ -36,8 +36,8 @@ const readUserController = async (req: Request, res: Response) => {
 
 const loginUserController = async (req: Request, res: Response) => {
   const data: IUserLogin = req.body;
-  const token = await loginUserService(data);
-  return res.status(200).json({ token });
+  const user = await loginUserService(data);
+  return res.status(200).json({user: user.returnedUser, token: user.token });
 };
 
 export {

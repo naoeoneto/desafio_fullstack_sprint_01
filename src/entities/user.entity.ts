@@ -29,10 +29,10 @@ class User {
   @Column()
   password: string;
 
-  @Column()
+  @Column({ length: 11 })
   phoneNumber: string;
 
-  @Column({ nullable: true })
+  @Column({ length: 11, nullable: true })
   secondPhoneNumber: string;
 
   @Column({ default: true })

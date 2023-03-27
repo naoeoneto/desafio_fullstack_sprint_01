@@ -39,3 +39,8 @@ export interface IUserLogin {
   email: string;
   password: string;
 }
+
+export interface IUserLoginResponse {
+  returnedUser: IUser;
+  token: string;
+}
