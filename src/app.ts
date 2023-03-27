@@ -5,6 +5,7 @@ import { loginRouter } from "./routers/login.router";
 import { userRouter } from "./routers/user.router";
 import { contactRouter } from "./routers/contact.router";
 import cors from "cors";
+import { handleError } from "./errors";
 
 export const app = express();
 
@@ -13,3 +14,4 @@ app.use(cors());
 app.use("/login", loginRouter);
 app.use("/users", userRouter);
 app.use("/contacts", contactRouter);
+app.use(handleError)

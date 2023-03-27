@@ -4,6 +4,7 @@
     "build": "tsc",
     "start": "node dist/src/server.js",
     "typeorm": "typeorm-ts-node-commonjs",
+    "swagger-autogen": "node ./swagger.js",
     "test": "cross-env NODE_ENV=test SECRET_KEY=secret_key jest --verbose --runInBand"
   },
   "dependencies": {

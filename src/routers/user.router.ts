@@ -10,10 +10,11 @@ import verifyAuthMiddleware from "../middlewares/verifyAuth.middleware";
 import { validateDataMiddleware } from "../middlewares/validateData.middleware";
 import { userSchema, userUpdateSchema } from "../schemas/users/schemaUser";
 import { verifyIdMiddleware } from "../middlewares/verifyId.middleware";
+import { verifyEmailExistsMiddleware } from "../middlewares/verifyEmailExists.middleware";
 
 const userRouter = Router();
 
-userRouter.post("", validateDataMiddleware(userSchema), createUserController);
+userRouter.post("", validateDataMiddleware(userSchema), verifyEmailExistsMiddleware, createUserController);
 
 userRouter.get("", verifyAuthMiddleware, listUsersController);
 
@@ -25,9 +26,8 @@ userRouter.get(
 );
 
 userRouter.patch(
-  "/:id",
+  "",
   verifyAuthMiddleware,
-  verifyIdMiddleware,
   validateDataMiddleware(userUpdateSchema),
   updateUserController
 );
