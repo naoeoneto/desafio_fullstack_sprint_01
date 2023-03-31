@@ -9,7 +9,7 @@ const verifyEmailExistsMiddleware = async (
   next: NextFunction
 ) => {
   const userRepository = AppDataSource.getRepository(User);
-  const user = userRepository.findOneBy({ email: req.body.email });
+  const user = await userRepository.findOneBy({ email: req.body.email });
 
   if (user) {
     throw new AppError("Email already exists", 400);
