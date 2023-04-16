@@ -18,7 +18,10 @@ class User {
   id: string;
 
   @Column()
-  fullName: string;
+  firstName: string;
+  
+  @Column()
+  lastName: string;
 
   @Column({ unique: true })
   email: string;
@@ -35,17 +38,11 @@ class User {
   @Column({ length: 11, nullable: true })
   secondPhoneNumber: string;
 
-  @Column({ default: true })
-  isActive: boolean;
-
   @CreateDateColumn()
   createdAt: Date;
 
   @UpdateDateColumn()
   updatedAt: Date;
-
-  @DeleteDateColumn({ nullable: true })
-  deletedAt: Date;
 
   @BeforeInsert()
   @BeforeUpdate()

@@ -5,8 +5,7 @@ const deleteContactService = async (id: string): Promise<string> => {
   const contactRepository = AppDataSource.getRepository(Contact);
   const contact = await contactRepository.findOneBy({ id: id });
 
-  await contactRepository.softRemove(contact!);
-  await contactRepository.save({ ...contact, isActive: false });
+  await contactRepository.remove(contact);
 
   return "Contact deleted";
 };

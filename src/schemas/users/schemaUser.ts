@@ -3,7 +3,8 @@ import { SchemaOf } from "yup";
 import { IUser, IUserRequest, IUserUpdate } from "../../interfaces/users";
 
 const userSchema: SchemaOf<IUserRequest> = yup.object().shape({
-  fullName: yup.string().required(),
+  firstName: yup.string().required(),
+  lastName: yup.string().required(),
   email: yup.string().email().required(),
   secondEmail: yup.string().email().nullable().notRequired(),
   password: yup.string().required(),
@@ -13,7 +14,8 @@ const userSchema: SchemaOf<IUserRequest> = yup.object().shape({
 
 const userResponseSchema: SchemaOf<IUser> = yup.object().shape({
   id: yup.string(),
-  fullName: yup.string(),
+  firstName: yup.string(),
+  lastName: yup.string(),
   email: yup.string().email(),
   secondEmail: yup.string().email().nullable(),
   phoneNumber: yup.string(),
@@ -26,7 +28,8 @@ const userResponseSchema: SchemaOf<IUser> = yup.object().shape({
 const userListSchema = yup.array(userResponseSchema);
 
 const userUpdateSchema: SchemaOf<IUserUpdate> = yup.object().shape({
-  fullName: yup.string().notRequired(),
+  firstName: yup.string().notRequired(),
+  lastName: yup.string().notRequired(),
   email: yup.string().email().notRequired(),
   secondEmail: yup.string().email().nullable().notRequired(),
   password: yup.string().min(6).notRequired(),

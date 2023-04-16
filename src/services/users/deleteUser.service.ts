@@ -5,11 +5,7 @@ const deleteUserService = async (id: string): Promise<string> => {
   const userRepository = AppDataSource.getRepository(User);
   const user = await userRepository.findOneBy({ id: id });
 
-  await userRepository.softRemove(user!);
-  await userRepository.save({
-    ...user,
-    isActive: false,
-  });
+  await userRepository.remove(user);
 
   return "User deleted";
 };

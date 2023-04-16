@@ -16,7 +16,7 @@ const loginUserService = async ({ email, password }: IUserLogin): Promise<IUserL
   }
 
   const token = jwt.sign(
-    { isActive: user.isActive },
+    { email: user.email },
     process.env.SECRET_KEY!,
     {
       subject: user.id,

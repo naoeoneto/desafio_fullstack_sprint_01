@@ -1,5 +1,6 @@
 export interface IUserRequest {
-  fullName: string;
+  firstName: string;
+  lastName: string;
   email: string;
   secondEmail?: string;
   password: string;
@@ -9,7 +10,8 @@ export interface IUserRequest {
 
 export interface IUser {
   id: string;
-  fullName: string;
+  firstName: string;
+  lastName: string;
   email: string;
   secondEmail?: string;
   phoneNumber: string;
@@ -20,7 +22,8 @@ export interface IUser {
 }
 
 export interface IUserUpdate {
-  fullName?: string;
+  firstName?: string;
+  lastName?: string;
   email?: string;
   secondEmail?: string;
   password?: string;
@@ -30,7 +33,8 @@ export interface IUserUpdate {
 
 export interface IUserContact {
   id: string;
-  fullName: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phoneNumber: string;
 }

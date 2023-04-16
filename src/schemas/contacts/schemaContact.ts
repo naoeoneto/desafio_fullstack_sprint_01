@@ -7,7 +7,8 @@ import {
 } from "../../interfaces/contacts";
 
 const contactSchema: SchemaOf<IContactRequest> = yup.object().shape({
-  fullName: yup.string().required(),
+  firstName: yup.string().required(),
+  lastName: yup.string().required(),
   email: yup.string().email().required(),
   secondEmail: yup.string().email().nullable().notRequired(),
   phoneNumber: yup.string().length(11).required(),
@@ -16,7 +17,8 @@ const contactSchema: SchemaOf<IContactRequest> = yup.object().shape({
 
 const contactResponseSchema: SchemaOf<IContact> = yup.object().shape({
   id: yup.string(),
-  fullName: yup.string(),
+  firstName: yup.string(),
+  lastName: yup.string(),
   email: yup.string().email(),
   secondEmail: yup.string().email().nullable(),
   phoneNumber: yup.string(),
@@ -31,7 +33,8 @@ const contactListSchema: SchemaOf<IContact[]> = yup.array(
 );
 
 const contactUpdateSchema: SchemaOf<IContactUpdate> = yup.object().shape({
-  fullName: yup.string().notRequired(),
+  firstName: yup.string().notRequired(),
+  lastName: yup.string().notRequired(),
   email: yup.string().email().notRequired(),
   secondEmail: yup.string().email().nullable().notRequired(),
   password: yup.string().notRequired(),

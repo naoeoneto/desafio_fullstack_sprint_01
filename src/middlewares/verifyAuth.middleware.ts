@@ -26,7 +26,7 @@ const verifyAuthMiddleware = async (
 
     req.user = {
       id: String(decoded.sub),
-      isActive: decoded.isActive,
+      email: decoded.email,
     };
 
     return next();

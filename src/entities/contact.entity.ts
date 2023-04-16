@@ -15,7 +15,10 @@ class Contact {
   id: string;
 
   @Column()
-  fullName: string;
+  firstName: string;
+
+  @Column()
+  lastName: string;
 
   @Column()
   email: string;
@@ -29,19 +32,16 @@ class Contact {
   @Column({ nullable: true })
   secondPhoneNumber: string;
 
-  @Column({ default: true })
-  isActive: boolean;
-
   @CreateDateColumn()
   createdAt: Date;
 
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @DeleteDateColumn()
-  deletedAt: Date;
-
-  @ManyToOne(() => User, (user) => user.contacts)
+  @ManyToOne(() => User, (user) => user.contacts, {
+    onDelete: "CASCADE",
+    eager: true,
+  })
   user: User;
 }
 

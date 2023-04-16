@@ -1,7 +1,8 @@
 import { IUserContact } from "../users";
 
 export interface IContactRequest {
-  fullName: string;
+  firstName: string;
+  lastName: string;
   email: string;
   secondEmail: string;
   phoneNumber: string;
@@ -10,7 +11,8 @@ export interface IContactRequest {
 
 export interface IContact {
   id: string;
-  fullName: string;
+  firstName: string;
+  lastName: string;
   email: string;
   secondEmail?: string;
   phoneNumber: string;
@@ -21,7 +23,8 @@ export interface IContact {
 }
 
 export interface IContactUpdate {
-  fullName?: string;
+  firstName?: string;
+  lastName?: string;
   email?: string;
   secondEmail?: string;
   phoneNumber?: string;
